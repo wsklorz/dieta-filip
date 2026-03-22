@@ -1,42 +1,203 @@
 
-Å¼elazo
+<style>
+* { box-sizing: border-box; }
+.day-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.day-tab { padding: 5px 13px; border-radius: 20px; font-size: 12px; font-weight: 500; border: 0.5px solid var(--color-border-secondary); background: transparent; color: var(--color-text-secondary); cursor: pointer; transition: background .15s; }
+.day-tab.active { background: var(--color-text-primary); color: var(--color-background-primary); border-color: transparent; }
+.meal-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 13px 15px; margin-bottom: 9px; }
+.meal-label { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }
+.meal-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+.meal-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.55; }
+.tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 7px; }
+.tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+.t-fe  { background: #E6F1FB; color: #0C447C; }
+.t-vd  { background: #EAF3DE; color: #27500A; }
+.t-ai  { background: #FAEEDA; color: #633806; }
+.t-pro { background: #E1F5EE; color: #085041; }
+.t-ca  { background: #FCEBEB; color: #791F1F; }
+.warn-box { background: var(--color-background-warning); border-radius: 8px; padding: 11px 14px; margin: 0.9rem 0; font-size: 13px; color: var(--color-text-primary); line-height: 1.6; }
+.info-box { background: var(--color-background-info); border-radius: 8px; padding: 11px 14px; margin: 0.9rem 0; font-size: 13px; color: var(--color-text-primary); line-height: 1.6; }
+.section-hdr { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .06em; margin: 1.3rem 0 0.6rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 5px; }
+.legend { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem; }
+.leg { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--color-text-secondary); }
+.dot { width: 7px; height: 7px; border-radius: 50%; }
+.rule-row { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+.rule-row:last-child { border-bottom: none; }
+.rule-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.rule-text { color: var(--color-text-primary); line-height: 1.5; }
+.rule-sub { color: var(--color-text-secondary); font-size: 12px; }
+</style>
 
-wit. D
+<div style="padding: 0.5rem 0 1.5rem;">
 
-przeciwzapalne
+<div class="legend">
+  <div class="leg"><div class="dot" style="background:#378ADD"></div> żelazo</div>
+  <div class="leg"><div class="dot" style="background:#639922"></div> wit. D</div>
+  <div class="leg"><div class="dot" style="background:#BA7517"></div> przeciwzapalne</div>
+  <div class="leg"><div class="dot" style="background:#1D9E75"></div> probiotyk</div>
+  <div class="leg"><div class="dot" style="background:#E24B4A"></div> ostrożnie — blokuje żelazo</div>
+</div>
 
-probiotyk
+<div class="day-tabs">
+  <button class="day-tab active" onclick="show(0)">Poniedziałek</button>
+  <button class="day-tab" onclick="show(1)">Wtorek</button>
+  <button class="day-tab" onclick="show(2)">Środa</button>
+  <button class="day-tab" onclick="show(3)">Czwartek</button>
+  <button class="day-tab" onclick="show(4)">Piątek</button>
+  <button class="day-tab" onclick="show(5)">Sobota</button>
+  <button class="day-tab" onclick="show(6)">Niedziela</button>
+</div>
 
-ostroÅ¼nie â€” blokuje Å¼elazo
-PoniedziaÅ‚ek
-Wtorek
-Åšroda
-Czwartek
-PiÄ…tek
-Sobota
-Niedziela
+<div id="days"></div>
 
-ZASADY KLUCZOWE PRZY TEJ SYTUACJI
-ðŸ¥›
-Mleko i sery â€” nie przy posiÅ‚kach z Å¼elazem
-WapÅ„ blokuje wchÅ‚anianie Å¼elaza. NabiaÅ‚ jako osobna przekÄ…ska lub 2h po/przed posiÅ‚kiem Å¼elazowym.
-ðŸŠ
-Witamina C przy kaÅ¼dym ÅºrÃ³dle Å¼elaza
-Papryka, kiwi, natka, sok pomaraÅ„czowy â€” zwiÄ™kszajÄ… wchÅ‚anianie Å¼elaza nawet 3-krotnie.
-ðŸŸ
-Ryby 3Ã— w tygodniu minimum
-ÅosoÅ›, makrela, sardynki â€” omega-3 hamujÄ… reakcjÄ™ alergicznÄ… i dostarczajÄ… witaminÄ™ D.
-ðŸ¥—
-Dieta przeciwzapalna jako fundament
-Kurkuma, imbir, czosnek, oliwa z oliwek â€” naturalnie obniÅ¼ajÄ… CRP i Å‚agodzÄ… odpowiedÅº alergicznÄ….
-ðŸ¦ 
-Probiotyki codziennie
-Jogurt naturalny, kefir, kiszonki â€” modulujÄ… oÅ› jelita-ukÅ‚ad immunologiczny, co ma udokumentowany wpÅ‚yw na alergie wziewne.
-ðŸš«
-Bez soku grejpfrutowego
-Interakcja z Rupafinem â€” hamuje metabolizm leku, moÅ¼e zwiÄ™kszyÄ‡ jego stÄ™Å¼enie we krwi.
-ðŸŒ¿
-Kwercentyna naturalnie
-Cebula, jabÅ‚ka, kapary, brokuÅ‚y â€” naturalne stabilizatory mastocytÃ³w (komÃ³rek tucznych), dziaÅ‚ajÄ… podobnie do lekÃ³w przeciwalergicznych.
-Mleko â€” maksymalnie 1â€“2 szklanki dziennie i nigdy przy posiÅ‚ku bogatym w Å¼elazo (miÄ™so, roÅ›liny strÄ…czkowe, jajka). Przetwory mleczne najlepiej jako oddzielna przekÄ…ska po poÅ‚udniu lub wieczorem.
-Witamina D3 â€” przy wyniku 28,4 ng/ml warto porozmawiaÄ‡ z lekarzem o suplementacji ok. 1000â€“2000 IU/dzieÅ„. Dieta moÅ¼e pomÃ³c (ryby, jajka), ale sama jej nie uzupeÅ‚ni do poziomu optymalnego.
+<div class="section-hdr">Zasady kluczowe przy tej sytuacji</div>
+
+<div class="rule-row">
+  <div class="rule-icon">🥛</div>
+  <div class="rule-text">
+    Mleko i sery — nie przy posiłkach z żelazem
+    <div class="rule-sub">Wapń blokuje wchłanianie żelaza. Nabiał jako osobna przekąska lub 2h po/przed posiłkiem żelazowym.</div>
+  </div>
+</div>
+<div class="rule-row">
+  <div class="rule-icon">🍊</div>
+  <div class="rule-text">
+    Witamina C przy każdym źródle żelaza
+    <div class="rule-sub">Papryka, kiwi, natka, sok pomarańczowy — zwiększają wchłanianie żelaza nawet 3-krotnie.</div>
+  </div>
+</div>
+<div class="rule-row">
+  <div class="rule-icon">🐟</div>
+  <div class="rule-text">
+    Ryby 3× w tygodniu minimum
+    <div class="rule-sub">Łosoś, makrela, sardynki — omega-3 hamują reakcję alergiczną i dostarczają witaminę D.</div>
+  </div>
+</div>
+<div class="rule-row">
+  <div class="rule-icon">🥗</div>
+  <div class="rule-text">
+    Dieta przeciwzapalna jako fundament
+    <div class="rule-sub">Kurkuma, imbir, czosnek, oliwa z oliwek — naturalnie obniżają CRP i łagodzą odpowiedź alergiczną.</div>
+  </div>
+</div>
+<div class="rule-row">
+  <div class="rule-icon">🦠</div>
+  <div class="rule-text">
+    Probiotyki codziennie
+    <div class="rule-sub">Jogurt naturalny, kefir, kiszonki — modulują oś jelita-układ immunologiczny, co ma udokumentowany wpływ na alergie wziewne.</div>
+  </div>
+</div>
+<div class="rule-row">
+  <div class="rule-icon">🚫</div>
+  <div class="rule-text">
+    Bez soku grejpfrutowego
+    <div class="rule-sub">Interakcja z Rupafinem — hamuje metabolizm leku, może zwiększyć jego stężenie we krwi.</div>
+  </div>
+</div>
+<div class="rule-row">
+  <div class="rule-icon">🌿</div>
+  <div class="rule-text">
+    Kwercentyna naturalnie
+    <div class="rule-sub">Cebula, jabłka, kapary, brokuły — naturalne stabilizatory mastocytów (komórek tucznych), działają podobnie do leków przeciwalergicznych.</div>
+  </div>
+</div>
+
+<div class="warn-box">
+  Mleko — maksymalnie 1–2 szklanki dziennie i nigdy przy posiłku bogatym w żelazo (mięso, rośliny strączkowe, jajka). Przetwory mleczne najlepiej jako oddzielna przekąska po południu lub wieczorem.
+</div>
+
+<div class="info-box">
+  Witamina D3 — przy wyniku 28,4 ng/ml warto porozmawiać z lekarzem o suplementacji ok. 1000–2000 IU/dzień. Dieta może pomóc (ryby, jajka), ale sama jej nie uzupełni do poziomu optymalnego.
+</div>
+
+</div>
+
+<script>
+const days = [
+  {
+    name: "Poniedziałek",
+    meals: [
+      { label: "Śniadanie", name: "Owsianka z kiwi, pestkami dyni i miodem", desc: "Płatki owsiane na wodzie lub mleku roślinnym, kiwi pokrojone (wit. C!), łyżka pestek dyni, łyżeczka miodu, szczypta kurkumy.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+      { label: "II śniadanie", name: "Jajko na twardo + papryka czerwona", desc: "2 jajka, garść pokrojonej papryki (ogromna dawka wit. C wzmacnia wchłanianie żelaza z jajek).", tags: ["t-fe:żelazo", "t-vd:wit. D"] },
+      { label: "Obiad", name: "Łosoś pieczony z batatami i brokułami", desc: "Filet łososia pieczony z oliwą i czosnkiem, bataty pieczone, brokuły gotowane na parze. Bez nabiału przy tym posiłku.", tags: ["t-fe:żelazo", "t-vd:wit. D", "t-ai:przeciwzapalne"] },
+      { label: "Podwieczorek", name: "Jogurt naturalny z jabłkiem i cynamonem", desc: "Tu nabiał jest OK — z dala od posiłku żelazowego. Jabłko dostarcza kwercentynę.", tags: ["t-pro:probiotyk", "t-ca:osobno od żelaza"] },
+      { label: "Kolacja", name: "Zupa krem z soczewicy z imbirem", desc: "Czerwona soczewica, marchewka, imbir świeży, kurkuma, czosnek, oliwa z oliwek. Sok z cytryny na końcu (wit. C). Chleb żytni z masłem.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+    ]
+  },
+  {
+    name: "Wtorek",
+    meals: [
+      { label: "Śniadanie", name: "Jajecznica z natką pietruszki i pomidorem", desc: "3 jajka, natka pietruszki (bogata w żelazo i wit. C), pomidor, oliwa z oliwek. Chleb żytni. Bez sera przy tym posiłku.", tags: ["t-fe:żelazo", "t-vd:wit. D"] },
+      { label: "II śniadanie", name: "Kefir z bananem", desc: "Szklanka kefiru + banan. Kefir to świetny probiotyk modulujący odporność.", tags: ["t-pro:probiotyk", "t-ca:osobno od żelaza"] },
+      { label: "Obiad", name: "Wątróbka drobiowa z cebulą i ryżem", desc: "Wątróbka z kurczaka to jedno z najlepszych źródeł żelaza hemowego. Dużo cebuli (kwercentyna!), ryż, surówka z kiszonej kapusty.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne", "t-pro:probiotyk"] },
+      { label: "Podwieczorek", name: "Ser żółty z jabłkiem", desc: "Plasterki sera żółty + jabłko. Nabiał oddzielnie od posiłków żelazowych.", tags: ["t-ca:osobno od żelaza"] },
+      { label: "Kolacja", name: "Makaron z tuńczykiem, oliwkami i pomidorkami", desc: "Tuńczyk z puszki (żelazo + wit. D), oliwki (kwasy jednonienasycone), pomidorki koktajlowe, czosnek, oliwa, natka pietruszki.", tags: ["t-fe:żelazo", "t-vd:wit. D", "t-ai:przeciwzapalne"] },
+    ]
+  },
+  {
+    name: "Środa",
+    meals: [
+      { label: "Śniadanie", name: "Koktajl szpinakowy z pomarańczą i bananem", desc: "Garść szpinaku (żelazo roślinne), sok z 1 pomarańczy (wit. C!), banan, łyżka siemienia lnianego. Szklanka mleka — oddzielnie po 30 min.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+      { label: "II śniadanie", name: "Chleb z pastą z awokado i jajkiem", desc: "Awokado rozgniecione z sokiem z cytryny i czosnkiem, jajko ugotowane, pieczywo żytnie.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+      { label: "Obiad", name: "Makrela pieczona z ziemniakami i surówką z kapusty", desc: "Makrela to tłusta ryba morska — bomba omega-3 i witaminy D. Kiszona kapusta jako probiotyk. Bez sera.", tags: ["t-fe:żelazo", "t-vd:wit. D", "t-ai:przeciwzapalne", "t-pro:probiotyk"] },
+      { label: "Podwieczorek", name: "Mleko z kakao + bułka z masłem", desc: "Szklanka mleka z kakao — tu nabiał jak najbardziej, z dala od żelaza z obiadu.", tags: ["t-pro:probiotyk", "t-ca:osobno od żelaza"] },
+      { label: "Kolacja", name: "Zupa pomidorowa z soczewicą i ryżem", desc: "Domowa zupa pomidorowa (dużo pomidorów — likopen!), czerwona soczewica, ryż, czosnek, bazylia, oliwa. Sok z cytryny.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+    ]
+  },
+  {
+    name: "Czwartek",
+    meals: [
+      { label: "Śniadanie", name: "Tosty z hummusem, papryką i rukolą", desc: "Hummus (ciecierzyca — żelazo roślinne), papryka czerwona (wit. C), rukola, chleb żytni. Herbata owocowa.", tags: ["t-fe:żelazo"] },
+      { label: "II śniadanie", name: "Jogurt z granolą i owocami leśnymi", desc: "Jogurt naturalny, garść granoli bez cukru, borówki/maliny/truskawki (antyoksydanty).", tags: ["t-pro:probiotyk", "t-ai:przeciwzapalne", "t-ca:osobno od żelaza"] },
+      { label: "Obiad", name: "Kurczak pieczony z warzywami w kurkumie", desc: "Udka z kurczaka pieczone z oliwą, kurkumą, czosnkiem, imbirem. Marchew, cukinia, cebula. Kasza jaglana. Bogaty w żelazo hemowe.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+      { label: "Podwieczorek", name: "Kefir + banan + garść orzechów włoskich", desc: "Orzechy włoskie to świetne źródło kwasów omega-3 (działanie przeciwzapalne).", tags: ["t-pro:probiotyk", "t-ai:przeciwzapalne"] },
+      { label: "Kolacja", name: "Jajka sadzone z fasolką szparagową i pieczywem", desc: "Jajka (żelazo + wit. D), fasolka szparagowa gotowana, chleb żytni, oliwa z oliwek, czosnek.", tags: ["t-fe:żelazo", "t-vd:wit. D"] },
+    ]
+  },
+  {
+    name: "Piątek",
+    meals: [
+      { label: "Śniadanie", name: "Płatki jaglane z mango i pestkami słonecznika", desc: "Kasza jaglana ugotowana, mango (wit. C, beta-karoten), pestki słonecznika (żelazo roślinne). Bez mleka — zrobione na wodzie.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+      { label: "II śniadanie", name: "Serek wiejski z rzodkiewką i szczypiorkiem", desc: "Serek wiejski to nabiał — oddzielnie od żelaza. Rzodkiewka i szczypiorek dostarczają wit. C.", tags: ["t-pro:probiotyk", "t-ca:osobno od żelaza"] },
+      { label: "Obiad", name: "Sardynki w pomidorach z makaronem i natką", desc: "Sardynki z puszki w sosie pomidorowym — jedno z najlepszych źródeł wit. D i omega-3, plus żelazo. Makaron pełnoziarnisty, dużo natki (wit. C).", tags: ["t-fe:żelazo", "t-vd:wit. D", "t-ai:przeciwzapalne"] },
+      { label: "Podwieczorek", name: "Szklanka mleka + jabłko z cynamonem", desc: "Mleko oddzielnie od żelazowego obiadu — min. 2h przerwa. Cynamon ma działanie przeciwzapalne.", tags: ["t-ca:osobno od żelaza", "t-ai:przeciwzapalne"] },
+      { label: "Kolacja", name: "Zupa z ciecierzycy z czosnkiem i szpinakiem", desc: "Ciecierzyca (żelazo roślinne), szpinak, czosnek, pomidory, kurkuma, oliwa. Sok z cytryny na końcu.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+    ]
+  },
+  {
+    name: "Sobota",
+    meals: [
+      { label: "Śniadanie", name: "Omlet z warzywami i ziołami", desc: "3 jajka, papryka, cebula, szpinak, czosnek, oliwa. Bez sera przy tym posiłku. Posypać natką.", tags: ["t-fe:żelazo", "t-vd:wit. D", "t-ai:przeciwzapalne"] },
+      { label: "II śniadanie", name: "Kefir z truskawkami lub malinami", desc: "Kefir jako probiotyk, owoce jagodowe jako antyoksydanty. Kwercentyna w skórkach owoców.", tags: ["t-pro:probiotyk", "t-ai:przeciwzapalne", "t-ca:osobno od żelaza"] },
+      { label: "Obiad", name: "Łosoś w folii z cytryną, pieczony ryż i surówka", desc: "Łosoś to wizytówka diety przy alergii — wit. D, omega-3, białko. Ryż z kurkumą, surówka colesław z kiszoną kapustą (probiotyk).", tags: ["t-fe:żelazo", "t-vd:wit. D", "t-ai:przeciwzapalne", "t-pro:probiotyk"] },
+      { label: "Podwieczorek", name: "Pizza na cienkim cieście — domowa", desc: "Sos pomidorowy (likopen!), mozzarella, warzywa (cebula, papryka, szpinak, pieczarki). Przerwa od obiadu min. 2h — tu ser jest OK.", tags: ["t-ca:osobno od żelaza", "t-ai:przeciwzapalne"] },
+      { label: "Kolacja", name: "Kanapki z pastą jajeczną i kiełkami", desc: "Pasta jajeczna na oliwie z musztardą, kiełki (wit. C, żelazo), pieczywo żytnie, ogórek kiszony (probiotyk).", tags: ["t-fe:żelazo", "t-pro:probiotyk"] },
+    ]
+  },
+  {
+    name: "Niedziela",
+    meals: [
+      { label: "Śniadanie", name: "Naleśniki z twarogiem i owocami", desc: "Naleśniki pszenne, twaróg półtłusty z wanilią i miodem, świeże owoce (kiwi, truskawki — wit. C). Niedzielny comfort food!", tags: ["t-pro:probiotyk"] },
+      { label: "II śniadanie", name: "Sok pomarańczowy + garść migdałów", desc: "Migdały to żelazo roślinne + zdrowe tłuszcze. Wit. C z soku wspomaga wchłanianie.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+      { label: "Obiad", name: "Rosół z makaronem i warzywami", desc: "Rosół na kościach drobiowych lub wołowych — bogaty w minerały, działa przeciwzapalnie. Dużo warzyw, natka na końcu. Osobna sałatka z papryką.", tags: ["t-fe:żelazo", "t-ai:przeciwzapalne"] },
+      { label: "Podwieczorek", name: "Ser żółty, winogrona, krakersy pełnoziarniste", desc: "Classique — nabiał w spokoju, z dala od obiadu z żelazem.", tags: ["t-ca:osobno od żelaza"] },
+      { label: "Kolacja", name: "Kasza gryczana z jajkiem sadzonym i pieczarkami", desc: "Kasza gryczana to świetne źródło żelaza roślinnego i magnezu. Jajko sadzone, pieczarki smażone na maśle z czosnkiem.", tags: ["t-fe:żelazo", "t-vd:wit. D", "t-ai:przeciwzapalne"] },
+    ]
+  }
+];
+
+const tagLabels = { "t-fe":"żelazo", "t-vd":"wit. D", "t-ai":"przeciwzapalne", "t-pro":"probiotyk", "t-ca":"ostrożnie: osobno od żelaza" };
+
+function show(idx) {
+  document.querySelectorAll('.day-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+  const d = days[idx];
+  document.getElementById('days').innerHTML = d.meals.map(m => {
+    const tags = m.tags.map(t => {
+      const [cls, ...rest] = t.split(':');
+      return `<span class="tag ${cls}">${rest.join(':')}</span>`;
+    }).join('');
+    return `<div class="meal-card"><div class="meal-label">${m.label}</div><div class="meal-name">${m.name}</div><div class="meal-desc">${m.desc}</div><div class="tags">${tags}</div></div>`;
+  }).join('');
+}
+show(0);
+</script>
